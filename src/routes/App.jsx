@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes, Route, HashRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from '@containers/Layout';
 import Home from '@pages/Home';
 import Login from '@pages/Login';
@@ -19,23 +19,24 @@ const App = () => {
 	const initialState = useInitialState();
 	return (
 		<AppContext.Provider value = {initialState}>
-            <HashRouter>
-                <Layout>
-                    <Routes>
-                        <Route path="/"element={<Home />} />
-                        <Route path="/login"element={<Login />} />
-                        <Route path="password-recovery"element={<PasswordRecovery />} />
-                        <Route path="/send-email"element={<SendEmail />} />
-                        <Route path="/new-password"element={<NewPassword />} />
-                        <Route path="/account"element={<MyAccount />} />
-                        <Route path="/signup"element={<CreateAccount />} />
-                        <Route path="/checkout"element={<Checkout />} />
-                        <Route path="/orders"element={<Orders />} />
-                        <Route path="*"element={<NotFound />} />
-                    </Routes>
-                </Layout>
-            </HashRouter>
-        </AppContext.Provider>
+			<BrowserRouter>
+				<Layout>
+					<Routes>
+						<Route path="/"element={<Home />} > /*El home debe contener a las demas rutas*/
+							<Route path="/login"element={<Login />} />
+							<Route path="/password-recovery"element={<PasswordRecovery />} />
+							<Route path="/send-email"element={<SendEmail />} />
+							<Route path="/new-password"element={<NewPassword />} />
+							<Route path="/account"element={<MyAccount />} />
+							<Route path="/signup"element={<CreateAccount />} />
+							<Route path="/checkout"element={<Checkout />} />
+							<Route path="/orders"element={<Orders />} />
+							<Route path="*"element={<NotFound />} />
+						</Route>
+					</Routes>
+				</Layout>
+			</BrowserRouter>
+		</AppContext.Provider>
     );
 }
 	

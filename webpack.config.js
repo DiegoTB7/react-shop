@@ -7,7 +7,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'git@github.com:DiegoTB7/react-shop.git/bundle.js',
-		publicPath: 'git@github.com:DiegoTB7/react-shop.git/',
+		publicPath: './'
 	},
 	mode: 'development',
 	resolve: {

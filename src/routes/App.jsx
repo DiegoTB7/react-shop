@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {Routes, Route, HashRouter } from 'react-router-dom';
 import Layout from '@containers/Layout';
 import Home from '@pages/Home';
 import Login from '@pages/Login';
@@ -18,25 +18,25 @@ import '@styles/global.css';
 const App = () => {
 	const initialState = useInitialState();
 	return (
-		<AppContext.Provider value={initialState}>
-	  		<BrowserRouter>
-				<Layout>
-		  			<Routes>
-						<Route exact path="/" element={<Home />} />
-						<Route exact path="/login" element={<Login />} />
-						<Route exact path="/password-recovery" element={<PasswordRecovery />} />
-						<Route exact path="/send-email" element={<SendEmail />} />
-						<Route exact path="/new-password" element={<NewPassword />} />
-						<Route exact path="/account" element={<MyAccount />} />
-						<Route exact path="/signup" element={<CreateAccount />} />
-						<Route exact path="/checkout" element={<Checkout />} />
-						<Route exact path="/orders" element={<Orders />} />
-						<Route path="*" element={<NotFound />} />
-		  			</Routes>
-				</Layout>
-	  		</BrowserRouter> 
-		</AppContext.Provider>
-	);
+		<AppContext.Provider value = {initialState}>
+            <HashRouter>
+                <Layout>
+                    <Routes>
+                        <Route path="/"element={<Home />} />
+                        <Route path="/login"element={<Login />} />
+                        <Route path="password-recovery"element={<PasswordRecovery />} />
+                        <Route path="/send-email"element={<SendEmail />} />
+                        <Route path="/new-password"element={<NewPassword />} />
+                        <Route path="/account"element={<MyAccount />} />
+                        <Route path="/signup"element={<CreateAccount />} />
+                        <Route path="/checkout"element={<Checkout />} />
+                        <Route path="/orders"element={<Orders />} />
+                        <Route path="*"element={<NotFound />} />
+                    </Routes>
+                </Layout>
+            </HashRouter>
+        </AppContext.Provider>
+    );
 }
-
+	
 export default App;
